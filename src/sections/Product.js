@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import Accordion from "../components/Accordion";
 
 export default function Product() {
   return (
@@ -84,6 +83,7 @@ export default function Product() {
           <div className='h-[1px] w-full bg-black mt-4 mb-6'></div>
 
           {/* Show the carousels */}
+          <Accordion />
         </div>
 
         {/* Leave an offset */}

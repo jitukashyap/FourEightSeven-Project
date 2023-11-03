@@ -2,9 +2,9 @@
 import './App.css';
 
 // Import section components
-import Announcement from './components/Announcement';
-import Navigation from './components/Navigation';
-import Product from './components/Product';
+import Announcement from './sections/Announcement';
+import Navigation from './sections/Navigation';
+import Product from './sections/Product';
 
 function App() {
   return (
