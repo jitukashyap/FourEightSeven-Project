@@ -1,9 +1,27 @@
-import { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useState, useEffect } from 'react';
 
 export default function Navigation() {
+  const [shouldHaveWhiteBackground, setShouldHaveWhiteBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300 && !shouldHaveWhiteBackground) {
+        setShouldHaveWhiteBackground(true);
+      }
+      else if (window.scrollY <= 300 && shouldHaveWhiteBackground) {
+        setShouldHaveWhiteBackground(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [shouldHaveWhiteBackground]);
+
   return (
-    <div className='font-important'>
+    <div className={`font-important sticky top-0 transition-colors duration-500 ${shouldHaveWhiteBackground ? "bg-white" : ""}`}>
       {/* Show the flex container */}
       <div
         className='flex justify-between items-center px-[30px] py-2 h-[50px] relative'
@@ -21,7 +39,7 @@ export default function Navigation() {
 
         {/* Show the logo */}
         <div className='absolute left-1/2 transform -translate-x-1/2'>
-          <img src="/logo.svg" className='h-[30px] w-[140px]' />
+          <img src="/logo.svg" className='h-[30px] w-[140px]' alt='Company Logo' />
         </div>
 
         {/* Show the right button */}
