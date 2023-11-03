@@ -1,0 +1,35 @@
+.accordion-item .icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.accordion-item .icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 1px;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
+.accordion-item .icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 20px;
+  background-color: black;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.accordion-item .icon.open::after {
+  opacity: 1;
+}

@@ -80,7 +80,7 @@ export default function Product() {
           </div>
 
           {/* Show a horizontal divider */}
-          <div className='h-[1px] w-full bg-black mt-4 mb-6'></div>
+          <div className='h-[1px] w-full bg-black mt-4'></div>
 
           {/* Show the carousels */}
           <Accordion />
